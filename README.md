@@ -1,3 +1,12 @@
+This repository contains several tutorials and notes on how to use Docker. It is recommended to go through the tutorials, while using the README.md as reference material.
+
+Main Reference Material: [DOCKER, FROM scratch by Aaron Powell](https://www.youtube.com/watch?v=i7yoXqlg48M)
+
+Would like to give a shout out to Aaron Powell. I used several difference sources to make this guide (Stack Overflow / Official Documentation), but his tech talk presented the ideal flow on how to learn Docker from a beginner point of view. Would highly recommend watching his talk (Main Reference Material). Here is their GitHub: https://github.com/aaronpowell
+
+---
+
+
 Docker is...
 
 * Not a virtual machine
@@ -20,6 +29,12 @@ A Host is...
 A DockerFile is...
 
 * An instruct set (Domain-specific-language), on how to create an image in docker. Used to create an image, which can be run as a container later on
+
+docker-compose is...
+
+* Is a file called docker-compose.yml
+* Describes an environment we can use to run docker
+
 ---
 
 Example command:
@@ -190,6 +205,52 @@ Lists the docker images on the host machine
 
 docker rmi INSERT_NAME_OF_IMAGE
 
-Deletes a docker image
+Deletes a Docker image
 
 ---
+
+docker-compose -f INSERT_FILE_NAME_HERE up CHOOSE_SERVICE_FROM_THAT_FILE_HERE
+
+Runs a service from a docker-compose file.
+
+---
+
+docker-compose rm -f
+
+When process is closed, forcefully cleanup docker-compose
+
+---
+
+docker rm -f INSERT_ID_HERE
+
+Forcefully remove a Docker container
+
+---
+
+docker network prune
+
+Removes all Docker networks
+
+---
+
+When you stop a docker container with a database, the data will remain. HOWEVER, if you remove a docker container, that data will vanish. Volume mounting can be used to persist the data.
+
+---
+
+docker-compose represents environments. (Example: An application that depends on RabitMQ, MongoDB, Redis, etc.) The compose file can make it so that you have a source of truth for environment setup.
+
+---
+
+In most use cases, you most likely you will not need to use Scratch. Meant for high performance, applications that would compile down to a native process.
+
+---
+
+Networking with Docker:
+
+* https://hackernoon.com/build-a-crud-api-with-mongodb-express-and-docker-70510c6f706b
+* (Official Reference) https://docs.docker.com/network/ 
+
+
+For additional content, like Security or running a Java application in Docker, check out the following link:
+
+* https://docs.docker.com/samples/
