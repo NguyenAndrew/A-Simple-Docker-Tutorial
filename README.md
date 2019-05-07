@@ -6,7 +6,6 @@ Would like to give a shout out to Aaron Powell. I used several difference source
 
 ---
 
-
 Docker is...
 
 * Not a virtual machine
@@ -34,6 +33,7 @@ docker-compose is...
 
 * Is a file called docker-compose.yml
 * Describes an environment we can use to run docker
+* "...A tool for defining and running multi-container Docker applications." - https://docs.docker.com/compose/overview/
 
 ---
 
@@ -47,6 +47,7 @@ docker run -it --rm ubuntu /bin/bash
 * arguments (first is image, second is executable): ubuntu /bin/bash
 
 ---
+
 
 docker ps
 
@@ -67,6 +68,19 @@ or
 docker ps --all
 
 Lists all containers, regardless of status (example: running or stopped)
+
+---
+
+-it 
+
+* -i keeps STDIN open even if not attached
+* -t Allocate a pseudo-tty
+
+For interactive processes (like a shell), you must use -i -t together in order to allocate a tty for the container process. 
+
+Summary: -it allows you to use a terminal to interact with a running Docker container.
+
+For reference, see https://docs.docker.com/engine/reference/run/
 
 ---
 
@@ -163,6 +177,7 @@ See numerous settings about a docker container
 Maps the port on the host machine to the port on a container. Example: If you had a container running a web server on PORT_ON_CONTAINER, you can do an http request on that container using PORT_ON_HOST.
 
 ---
+
 DockerFile syntax
 
 * FROM 
@@ -173,6 +188,7 @@ DockerFile syntax
 * CMD
 
 --
+
 * FROM INSERT_BUILD_HERE
 * EXPOSE INSERT_PORT_HERE
 * RUN INSERT_COMMAND_HERE
